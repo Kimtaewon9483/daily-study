@@ -2,6 +2,7 @@
     1. 익스텐션 -> Java Extension Pack , Spring Boot Extension Pack, Lombok Annotations Support for VS Code 설치
     2. mysql 설치
 
+```
 Section 1
     - 전체적인 흐름
         화면(프론트 영역) -> 컨트롤러(백엔드 영역) -> 서비스(백엔드 영역) -> 데이터베이스(백엔드 영역) -> 역순
@@ -33,3 +34,4 @@ Section 2
 
         7.service
              Repository에서 얻어온 정보를 바탕으로 자바 문법을 이용하여 가공 후 다시 Controller에 정보를 잔딜(리모콘버튼을 눌렀을때의 기능을 정의)
+```
