@@ -1,6 +1,12 @@
 준비물 
     1. 익스텐션 -> Java Extension Pack , Spring Boot Extension Pack, Lombok Annotations Support for VS Code 설치
     2. mysql 설치
+    3.포스트맨 설치 
+        - 로그인 : http://localhost:8080/login
+        - 회원가입 : http://localhost:8080/join
+        - admin : http://localhost:8080/admin
+        - 로그아웃 : http://localhost:8080/logout
+        - 홈 화면 : http://localhost:8080/
 
 ```
 Section 1
