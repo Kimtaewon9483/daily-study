@@ -1,5 +1,5 @@
 <template>
-  <div>2131212321</div>
+  <div>Category</div>
 </template>
 
 <script lang="ts">
