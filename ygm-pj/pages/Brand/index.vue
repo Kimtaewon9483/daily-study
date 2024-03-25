@@ -1,8 +1,6 @@
 <template>
   <div>
-    Brand Page
     <BrandItemBrandList />
-    <ButtonHomeButton />
   </div>
 </template>
 
