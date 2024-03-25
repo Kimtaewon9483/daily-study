@@ -1,15 +1,7 @@
 <template>
-  <div>Home</div>
+  <div>Home Page</div>
 </template>
 
-<script lang="ts">
-import NavigationBar from "~/components/NavBar/NavigationBar.vue";
-export default {
-  component: { NavigationBar },
-  setup() {
-    return {};
-  },
-};
-</script>
+<script setup lang="ts"></script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

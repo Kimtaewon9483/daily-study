@@ -1,15 +1,10 @@
 <template>
   <div>
+    <NavBarNavigationBar />
     <NuxtPage />
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  setup() {
-    return {};
-  },
-};
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped></style>

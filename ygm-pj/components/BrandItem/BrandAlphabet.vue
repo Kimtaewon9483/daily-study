@@ -1,8 +1,8 @@
 <template>
-  <div>Category Page</div>
+  <div></div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   setup() {
     return {};
