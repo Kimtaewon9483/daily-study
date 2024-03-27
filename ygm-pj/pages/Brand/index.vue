@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BrandItemBrandAlphabet />
     <BrandItemBrandList />
   </div>
 </template>
