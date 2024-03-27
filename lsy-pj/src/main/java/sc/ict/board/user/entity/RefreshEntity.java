@@ -1,11 +1,10 @@
 package sc.ict.board.user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 // 리프레시 토큰과 관련된 정보를 데이터베이스에 저장하기 위한 구조를 정의
 @Entity
@@ -17,7 +16,12 @@ public class RefreshEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String refresh;
-    private String expiration;
+
+    @Column(nullable = false)
+    private LocalDateTime expiration;
 }

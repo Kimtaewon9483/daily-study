@@ -1,5 +1,6 @@
 package sc.ict.board.user.jwt;
 
+import jakarta.transaction.Transactional;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import sc.ict.board.user.repository.RefreshRepository;
@@ -16,9 +17,12 @@ public class RefreshTokenCleanupScheduler {
         this.refreshRepository = refreshRepository;
     }
 
-    @Scheduled(cron = "0 0 0 * * *") // 매일 자정에 실행
+    // 매일 자정에 실행
+    @Transactional
+    @Scheduled(cron = "0 0 0 * * *")
     public void cleanupExpiredRefreshTokens() {
-        // 현재 시간 기준으로 만료된 리프레시 토큰 삭제
-        refreshRepository.deleteByExpirationLessThan(LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now();
+        refreshRepository.deleteByExpirationLessThan(now);
+        System.out.println("Expired refresh tokens cleaned up at: " + now);
     }
 }

@@ -1,5 +1,5 @@
 준비물 
-    1. 익스텐션 -> Java Extension Pack , Spring Boot Extension Pack, Lombok Annotations Support for VS Code 설치
+    1. 익스텐션 -> Java Extension Pack , Spring Boot Extension Pack, Lombok Annotations Support for VS Code 설치, 자바 17버전 설치
     2. mysql 설치
     3. 포스트맨 설치 
         * 유저 테이블

@@ -17,6 +17,7 @@ import sc.ict.board.user.entity.RefreshEntity;
 import sc.ict.board.user.repository.RefreshRepository;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
@@ -73,7 +74,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         addRefreshEntity(username, refresh, 86400000L);
 
         // 응답에 액세스 토큰과 리프레시 토큰 설정
-        response.setHeader("access", access);
+        response.setHeader("Authorization", "Bearer " + access);
         response.addCookie(createCookie("refresh", refresh));
         response.setStatus(HttpStatus.OK.value());
     }
@@ -94,12 +95,12 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     // 리프레시 토큰을 데이터베이스에 저장하는 메서드
     private void addRefreshEntity(String username, String refresh, Long expiredMs) {
-        Date date = new Date(System.currentTimeMillis() + expiredMs);
+        LocalDateTime expirationDateTime = LocalDateTime.now().plusSeconds(expiredMs / 1000);
 
         RefreshEntity refreshEntity = new RefreshEntity();
         refreshEntity.setUsername(username);
         refreshEntity.setRefresh(refresh);
-        refreshEntity.setExpiration(date.toString());
+        refreshEntity.setExpiration(expirationDateTime);
 
         refreshRepository.save(refreshEntity);
     }

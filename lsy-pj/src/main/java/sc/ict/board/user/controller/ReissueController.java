@@ -13,6 +13,7 @@ import sc.ict.board.user.entity.RefreshEntity;
 import sc.ict.board.user.jwt.JWTUtil;
 import sc.ict.board.user.repository.RefreshRepository;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -108,13 +109,12 @@ public class ReissueController {
 
     // 리프레시 토큰을 데이터베이스에 저장하는 메서드
     private void addRefreshEntity(String username, String refresh, Long expiredMs) {
-
-        Date date = new Date(System.currentTimeMillis() + expiredMs);
+        LocalDateTime expirationDateTime = LocalDateTime.now().plusSeconds(expiredMs / 1000);
 
         RefreshEntity refreshEntity = new RefreshEntity();
         refreshEntity.setUsername(username);
         refreshEntity.setRefresh(refresh);
-        refreshEntity.setExpiration(date.toString());
+        refreshEntity.setExpiration(expirationDateTime);
 
         refreshRepository.save(refreshEntity);
     }

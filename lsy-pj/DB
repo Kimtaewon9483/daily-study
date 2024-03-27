@@ -9,7 +9,7 @@ CREATE TABLE refreshentity (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     refresh VARCHAR(255) NOT NULL,
-    expiration VARCHAR(255) NOT NULL,
+    expiration DATETIME NOT NULL,
     CONSTRAINT fk_refreshentity_username FOREIGN KEY (username) REFERENCES userentity(username)
 );
 

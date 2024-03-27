@@ -2,6 +2,8 @@ package sc.ict.board.user.repository;
 
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import sc.ict.board.user.entity.RefreshEntity;
 
@@ -19,5 +21,7 @@ public interface RefreshRepository extends JpaRepository<RefreshEntity, Long> {
     void deleteByRefresh(String refresh);
 
     //만료시간이 지난 리프레시 토큰을 데이터베이스에서 삭제
+    @Modifying
+    @Query("delete from RefreshEntity r where r.expiration < ?1")
     void deleteByExpirationLessThan(LocalDateTime now);
 }
