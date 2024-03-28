@@ -2,10 +2,10 @@
   <div class="mx-[500px]">
     <input class="m-5 p-1.5 w-128 rounded shadow" placeholder="Search" />
     <div class="mr-10">
-      <div v-for="item in list" :key="item.name" :id="item.name">
+      <div v-for="item in list" :key="item.id" :id="item.id">
         <div class="flex flex-col mt-4">
-          <p class="font-bold">{{ item.name }}</p>
-          <NuxtLink :to="item.url"> ATMOS </NuxtLink>
+          <p class="font-bold">{{ item.id }}</p>
+          <NuxtLink :to="item.url">{{ item.name }} </NuxtLink>
         </div>
       </div>
     </div>
@@ -15,107 +15,133 @@
 <script lang="ts" setup>
 const list = [
   {
-    name: "A",
+    id: "A",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "B",
+    id: "B",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "C",
+    id: "C",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "D",
+    id: "D",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "E",
+    id: "E",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "F",
+    id: "F",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "G",
+    id: "G",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "H",
+    id: "H",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "I",
+    id: "I",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "J",
+    id: "J",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "K",
+    id: "K",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "L",
+    id: "L",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "M",
+    id: "M",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "N",
+    id: "N",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "O",
+    id: "O",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "P",
+    id: "P",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "Q",
+    id: "Q",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "R",
+    id: "R",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "S",
+    id: "S",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "T",
+    id: "T",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "U",
+    id: "U",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "V",
+    id: "V",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "W",
+    id: "W",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "X",
+    id: "X",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "Y",
+    id: "Y",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
   {
-    name: "Z",
+    id: "Z",
+    name: "ATMOS",
     url: "https://www.atmos-tokyo.com/",
   },
 ];
