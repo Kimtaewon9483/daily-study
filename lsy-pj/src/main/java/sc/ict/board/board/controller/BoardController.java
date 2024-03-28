@@ -21,14 +21,15 @@ public class BoardController {
 
     // 게시판을 조회하는 메서드
     @GetMapping({"", "/list"})
-    public ResponseEntity<List<BoardDTO>> list(Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
+    public String list(Model model, @RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
         // 지정된 페이지 번호에 해당하는 게시글 목록을 가져온다.
         List<BoardDTO> boardList = boardService.getBoardlist(pageNum);
         // 페이지 번호 목록을 가져온다.
         Integer[] pageList = boardService.getPageList(pageNum);
         model.addAttribute("boardList", boardList);
         model.addAttribute("pageList", pageList);
-        return ResponseEntity.ok(boardList);
+        //return ResponseEntity.ok(boardList);
+        return "list";
     }
 
     // 게시글 작성 페이지 메서드

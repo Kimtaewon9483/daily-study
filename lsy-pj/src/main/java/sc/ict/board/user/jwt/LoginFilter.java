@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.ui.Model;
 import sc.ict.board.user.dto.LoginDTO;
 import sc.ict.board.user.entity.RefreshEntity;
 import sc.ict.board.user.repository.RefreshRepository;
@@ -54,8 +55,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     }
 
     // 인증 성공 시 호출되는 메서드
-    @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication, Model model) {
         // 인증된 사용자 정보 가져오기
         String username = authentication.getName();
 
@@ -66,6 +66,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         // 액세스 토큰과 리프레시 토큰 생성
         String access = jwtUtil.createJwt("access", username, role, 1200000L);
+        model.addAttribute("Authorization", "Bearer " + access);
         System.out.println("access token = " + access);
         String refresh = jwtUtil.createJwt("refresh", username, role, 86400000L);
         System.out.println("refresh token = " + refresh);

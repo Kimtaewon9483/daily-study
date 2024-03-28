@@ -49,13 +49,12 @@ public class JWTUtil {
 
     // 새 JWT를 생성
     public String createJwt(String category, String username, String role, Long expiredMs) {
-        // category, username, role을 클레임으로 추가하고, 만료 시간을 설정하여 JWT 생성
         return Jwts.builder()
                 .claim("category", category)
                 .claim("username", username)
                 .claim("role", role)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 24 * 60 * 60 * 1000))
+                .expiration(new Date(System.currentTimeMillis() + expiredMs))
                 .signWith(secretKey)
                 .compact();
     }

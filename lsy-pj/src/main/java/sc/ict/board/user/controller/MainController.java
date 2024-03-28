@@ -18,6 +18,7 @@ public class MainController {
     public String mainP() {
         // SecurityContextHolder를 통해 현재 인증된 사용자의 username을 가져온다.
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
         // SecurityContextHolder를 통해 현재 인증 정보를 가져온다.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         // 인증 정보에서 사용자의 권한 목록을 가져온다.

@@ -89,7 +89,7 @@ public class SecurityConfig {
         // 인증 및 권한 부여 설정을 구성 ( ex.'localhost:3000/login'에는 토큰이 없어도 접근 가능 )
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/error").permitAll()
+                        .requestMatchers("/error", "/favicon.ico").permitAll()
                         .requestMatchers("/login", "/", "/join").permitAll()
                         .requestMatchers("/board/**").hasRole("ADMIN")
                         .requestMatchers("/reissue").permitAll()
