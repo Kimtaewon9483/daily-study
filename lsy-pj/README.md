@@ -1,6 +1,21 @@
 준비물 
-    1. 익스텐션 -> Java Extension Pack , Spring Boot Extension Pack, Lombok Annotations Support for VS Code 설치
+    1. 익스텐션 -> Java Extension Pack , Spring Boot Extension Pack, Lombok Annotations Support for VS Code 설치, 자바 17버전 설치
     2. mysql 설치
+    3. 포스트맨 설치 
+        * 유저 테이블
+        - 로그인 : http://localhost:8080/login
+        - 회원가입 : http://localhost:8080/join
+        - admin : http://localhost:8080/admin
+        - 로그아웃 : http://localhost:8080/logout
+        - 홈 화면 : http://localhost:8080/
+
+        * 게시판 테이블
+        - 게시판 작성 : http://localhost:8080/api/board/post
+        - 게시판 목록 : http://localhost:8080/api/board/list
+        - 게시판 삭제 : http://localhost:8080/api/board/post/{no}
+        - 게시판 조회 : http://localhost:8080/api/board/search?keyword={keuword}
+        - 게시판 수정 : http://localhost:8080/api/board/post/edit/{no}
+        - 게시판 상세 : http://localhost:8080/api/board/post/{no}
 
 ```
 Section 1

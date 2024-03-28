@@ -9,8 +9,19 @@ CREATE TABLE refreshentity (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     refresh VARCHAR(255) NOT NULL,
-    expiration VARCHAR(255) NOT NULL,
+    expiration DATETIME NOT NULL,
     CONSTRAINT fk_refreshentity_username FOREIGN KEY (username) REFERENCES userentity(username)
+);
+
+CREATE TABLE boardentity (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  created_date DATETIME(6) NOT NULL,
+  modified_date DATETIME(6) NOT NULL,
+  CONSTRAINT fk_boardentity_username FOREIGN KEY (username) REFERENCES userentity(username),
+  INDEX idx_boardentity_username (username)
 );
 
 drop table refreshentity;
