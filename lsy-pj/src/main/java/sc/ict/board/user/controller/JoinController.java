@@ -49,10 +49,4 @@ public class JoinController {
     public String loginForm() {
         return "List/login";
     }
-
-    @PostMapping("/login")
-    public String loginPost() {
-        System.out.println("Post Login");
-        return "List/login";
-    }
 }
