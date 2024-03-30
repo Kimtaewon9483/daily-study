@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var accessToken = localStorage.getItem('accessToken');
+            $.ajax({
+                type: "GET",
+                url: "/",
+                headers: {
+                    'Authorization': accessToken
+                }
+            })
+            console.log("home page : " + accessToken);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        home
+    </div>
+    <tbody>
+    <tr>
+        <td th:text="${username}"></td>
+        <td th:text="${password}"></td>
+        <td th:text="${role}"></td>
+        <td>asd</td>
+    </tr>
+    </tbody>
+</body>
+</html>

@@ -11,6 +11,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.ui.Model;
 import sc.ict.board.user.dto.LoginDTO;
@@ -40,44 +42,56 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
         try {
-            // LoginDTO 객체를 추출
-            LoginDTO userLoginDTO = new ObjectMapper().readValue(request.getInputStream(), LoginDTO.class);
+            // request에서 username과 password 값을 직접 추출
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
             // UsernamePasswordAuthenticationToken 생성
-            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                    userLoginDTO.getUsername(), userLoginDTO.getPassword(), null);
+            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
+            System.out.println("Login filter : " + authToken);
 
             // AuthenticationManager를 통해 인증 시도
             return authenticationManager.authenticate(authToken);
-        } catch (IOException e) {
+        } catch (AuthenticationException e) {
             throw new RuntimeException(e);
         }
     }
 
     // 인증 성공 시 호출되는 메서드
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication, Model model) {
+    @Override
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException {
         // 인증된 사용자 정보 가져오기
         String username = authentication.getName();
+        System.out.println("successfulAuthentication : " + authentication);
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
         GrantedAuthority auth = iterator.next();
         String role = auth.getAuthority();
+        System.out.println("auth : " + auth);
 
         // 액세스 토큰과 리프레시 토큰 생성
         String access = jwtUtil.createJwt("access", username, role, 1200000L);
-        model.addAttribute("Authorization", "Bearer " + access);
         System.out.println("access token = " + access);
         String refresh = jwtUtil.createJwt("refresh", username, role, 86400000L);
         System.out.println("refresh token = " + refresh);
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        System.out.println("seccessful authentication : " + String.valueOf(SecurityContextHolder.getContext().getAuthentication()));
+
 
         // 리프레시 토큰 저장 (생명주기 : 24시간)
         addRefreshEntity(username, refresh, 86400000L);
 
         // 응답에 액세스 토큰과 리프레시 토큰 설정
-        response.setHeader("Authorization", "Bearer " + access);
-        response.addCookie(createCookie("refresh", refresh));
-        response.setStatus(HttpStatus.OK.value());
+        //response.setHeader("Authorization", "Bearer " + access);
+        //response.addCookie(createCookie("refresh", refresh));
+        //response.setStatus(HttpStatus.OK.value());
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        String responseBody = "{\"access_token\":\"Bearer " + access + "\", \"refresh_token\":\"" + refresh + "\"}";
+        System.out.println("LoginFilter + responseBody : " + responseBody);
+        response.getWriter().write(responseBody);
     }
 
     // 인증 실패 시 호출되는 메서드

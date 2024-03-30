@@ -29,7 +29,7 @@ public class BoardController {
         model.addAttribute("boardList", boardList);
         model.addAttribute("pageList", pageList);
         //return ResponseEntity.ok(boardList);
-        return "list";
+        return "List/list";
     }
 
     // 게시글 작성 페이지 메서드

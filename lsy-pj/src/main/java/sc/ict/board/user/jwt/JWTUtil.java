@@ -23,6 +23,19 @@ public class JWTUtil {
         this.refreshRepository = refreshRepository;
     }
 
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parser()
+                    .verifyWith(secretKey)
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     // 주어진 토큰에서 사용자 이름을 추출
     public String getUsername(String token) {
 
