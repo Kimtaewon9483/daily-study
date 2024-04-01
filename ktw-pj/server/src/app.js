@@ -46,34 +46,32 @@ app.get("/api/v1/getCategoryList/:id", (req, res) => {
 
 app.post("/api/v1/regist-item", (req, res) => {
   const { categoryList } = require("./mock/categoryList");
-  const { code, item } = req.body;
+  const { code, item, price, count } = req.body;
+
+  console.log("Price", price);
+  console.log("Count", count);
 
   const sql = `
-    INSERT INTO 
+    INSERT INTO
       item (categoryCode, title, count, price)
     VALUES
       (?, ?, ?, ?)
     `;
 
-  const getSql = `
-  SELECT 
-    *
-  FROM
-    item
-  WHERE
-    categoryCode = ?
-`;
-
-  db.query(sql, [code, item, 0, 0], (error, results, fields) => {
-    console.log("error", error);
-    console.log("results", results);
-    console.log("fields", fields);
+  db.query(sql, [code, item, count, price], (error, results, fields) => {
     if (error) {
       throw new Error(error);
       res.status(500).send("Insert Query Error");
     }
 
-    console.log("Check");
+    const getSql = `
+    SELECT
+      *
+    FROM
+      item
+    WHERE
+      categoryCode = ?
+  `;
     db.query(getSql, [code], (error, results, feilds) => {
       if (error) {
         throw new Error(error);
@@ -95,6 +93,36 @@ app.post("/api/v1/regist-item", (req, res) => {
   // };
   // const newArray = [...filteredArray, newItem];
   // res.json(newArray);
+});
+
+app.put("/api/v1/update-item", (req, res) => {
+  const sql = `
+    UPDATE
+      item
+    SET
+      title = ?,
+      price = ?,
+      count = ?
+    WHERE
+      id = ?
+  `;
+
+  const { id, categoryCode, title, count, price } = req.body;
+
+  console.log("id", id);
+  console.log("categoryCode", categoryCode);
+  console.log("price", price);
+  console.log("count", count);
+  console.log("title", title);
+
+  db.query(sql, [title, price, count, id], (error, results, fields) => {
+    if (error) {
+      throw new Error(error);
+      res.status(500).send("Update Error");
+    }
+
+    res.status(200).json("Success");
+  });
 });
 
 app.listen(PORT, () => {
