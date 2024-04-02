@@ -46,10 +46,7 @@ app.get("/api/v1/getCategoryList/:id", (req, res) => {
 
 app.post("/api/v1/regist-item", (req, res) => {
   const { categoryList } = require("./mock/categoryList");
-  const { code, item, price, count } = req.body;
-
-  console.log("Price", price);
-  console.log("Count", count);
+  const { categoryCode, title, price, count } = req.body;
 
   const sql = `
     INSERT INTO
@@ -58,13 +55,16 @@ app.post("/api/v1/regist-item", (req, res) => {
       (?, ?, ?, ?)
     `;
 
-  db.query(sql, [code, item, count, price], (error, results, fields) => {
-    if (error) {
-      throw new Error(error);
-      res.status(500).send("Insert Query Error");
-    }
+  db.query(
+    sql,
+    [categoryCode, title, count, price],
+    (error, results, fields) => {
+      if (error) {
+        throw new Error(error);
+        res.status(500).send("Insert Query Error");
+      }
 
-    const getSql = `
+      const getSql = `
     SELECT
       *
     FROM
@@ -72,14 +72,15 @@ app.post("/api/v1/regist-item", (req, res) => {
     WHERE
       categoryCode = ?
   `;
-    db.query(getSql, [code], (error, results, feilds) => {
-      if (error) {
-        throw new Error(error);
-        res.status(500).send("Select Query Error");
-      }
-      res.status(200).json(results);
-    });
-  });
+      db.query(getSql, [categoryCode], (error, results, feilds) => {
+        if (error) {
+          throw new Error(error);
+          res.status(500).send("Select Query Error");
+        }
+        res.status(200).json(results);
+      });
+    },
+  );
 
   // const filteredArray = categoryList.filter(
   //   (item) => item.categoryCode == code,
@@ -107,18 +108,31 @@ app.put("/api/v1/update-item", (req, res) => {
       id = ?
   `;
 
-  const { id, categoryCode, title, count, price } = req.body;
-
-  console.log("id", id);
-  console.log("categoryCode", categoryCode);
-  console.log("price", price);
-  console.log("count", count);
-  console.log("title", title);
-
+  const { id, title, count, price } = req.body;
   db.query(sql, [title, price, count, id], (error, results, fields) => {
     if (error) {
       throw new Error(error);
       res.status(500).send("Update Error");
+    }
+
+    res.status(200).json("Success");
+  });
+});
+
+app.delete("/api/v1/delete-item", (req, res) => {
+  const { id } = req.body;
+
+  const sql = `
+    DELETE FROM 
+      item
+    WHERE
+      id = ?
+  `;
+
+  db.query(sql, [id], (error, results, fields) => {
+    if (error) {
+      throw new Error(error);
+      res.status(500).send("Delete Error");
     }
 
     res.status(200).json("Success");

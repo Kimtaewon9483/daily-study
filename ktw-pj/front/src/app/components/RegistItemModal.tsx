@@ -23,18 +23,17 @@ const RegistItemModal = ({ item, setItem, setToggleModal, setList }: Props) => {
 
     fetch("http://localhost:8080/api/v1/update-item", options).then((res) => {
       if (!setToggleModal) return;
-      if (res.ok) setToggleModal((pre) => !pre);
-      fetch(
-        `http://localhost:8080/api/v1/getCategoryList/${item?.categoryCode}`,
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (!setList) return;
-          setList(data);
-        })
-        .catch((err) => {
-          throw new Error(err);
-        });
+      if (res.ok) {
+        fetch(
+          `http://localhost:8080/api/v1/getCategoryList/${item?.categoryCode}`,
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (!setList) return;
+            setList(data);
+            setToggleModal((pre) => !pre);
+          });
+      }
     });
   };
   return (
