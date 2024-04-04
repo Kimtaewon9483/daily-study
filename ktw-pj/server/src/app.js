@@ -35,13 +35,30 @@ app.get("/api/v1/getCategoryList/:id", (req, res) => {
       throw new Error(error);
       res.status(500).send("Select Query Error");
     }
-
     res.status(200).json(results);
   });
 
   // const filteredList = categoryList.filter((item) => item.categoryCode == id);
   // console.log(filteredList);
   // res.json(filteredList);
+});
+
+app.get("/api/v1/getAllItems", (req, res, next) => {
+  const sql = `
+    SELECT
+      *
+    FROM
+      item;
+  `;
+
+  db.query(sql, (error, results, fields) => {
+    if (error) {
+      throw new Error(error);
+      res.status(500).send("Select Error");
+    }
+
+    res.status(200).json(results);
+  });
 });
 
 app.post("/api/v1/regist-item", (req, res) => {

@@ -2,7 +2,6 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CategoryItemType } from "../types/dashboard";
-import Link from "next/link";
 import Input from "./Input";
 import RegistItemModal from "./RegistItemModal";
 
@@ -14,6 +13,7 @@ export default function CategoryItemListComp() {
   const [toggleInput, setToggleInput] = useState<boolean>(false);
   const [item, setItem] = useState<CategoryItemType | undefined>();
 
+  // useEffect를 추후에 지우고싶음... 방법을 모색해봐야 함
   useEffect(() => {
     fetch(`http://localhost:8080/api/v1/getCategoryList/${categoryId}`)
       .then((res) => res.json())
@@ -38,7 +38,6 @@ export default function CategoryItemListComp() {
         fetch(`http://localhost:8080/api/v1/getCategoryList/${categoryId}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             setList(data);
           });
       }
@@ -79,14 +78,17 @@ export default function CategoryItemListComp() {
       {list &&
         list.map((item) => (
           <div key={item.id}>
-            <span
+            <span>
+              {item.title} {item.count} 개
+            </span>
+            <button
               onClick={() => {
                 setItem(item);
                 setToggleModal((pre) => !pre);
               }}
             >
-              {item.title} {item.count} 개
-            </span>
+              Update
+            </button>
             <button onClick={() => deleteHandler(item.id)}>Delete</button>
           </div>
         ))}
