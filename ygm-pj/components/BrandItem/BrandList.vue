@@ -6,6 +6,7 @@
         <div class="flex flex-col mt-4">
           <p class="font-bold">{{ item.id }}</p>
           <NuxtLink :to="item.url">{{ item.name }} </NuxtLink>
+          <br />
         </div>
       </div>
     </div>
