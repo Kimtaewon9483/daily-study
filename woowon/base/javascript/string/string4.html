@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="string1"></p>
+    <p id="string2"></p>
+    <p id="string3"></p>
+    <p id="string4"></p>
+    <p id="string5"></p>
+
+    <script>
+        let str1 = "    hellow world    ";
+        let txt1 = str1.trim();
+        document.getElementById("string1").innerHTML = "[" + txt1 + "]";
+
+        let txt2 = str1.trimStart();
+        document.getElementById("string2").innerHTML = "[" + txt2 + "]";
+
+        let txt3 = str1.trimEnd();
+        document.getElementById("string3").innerHTML = "[" + txt3 + "]";
+
+        let str2 = "111";
+        let txt4 = str2.padStart(5,"#");
+        document.getElementById("string4").innerHTML = txt4;
+
+        let txt5 = str2.padEnd(5,"*");
+        document.getElementById("string5").innerHTML = txt5;
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Name : <input type="text" id="name">
+
+    <script>
+        const x = document.getElementById("name");
+        x.onfocus = function(){changeBgcolor1();};
+        x.onblur = function(){changeBgcolor2();};
+        function changeBgcolor1(){
+            x.style.backgroundColor = "yellow";
+        }
+        function changeBgcolor2(){
+            x.style.backgroundColor = "";
+        }
+    </script>
+</body>
+</html>

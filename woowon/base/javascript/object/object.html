@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="show1"></p>
+    <p id="show2"></p>
+    <p id="show3"></p>
+    <p id="show4"></p>
+    <p id="show5"></p>
+    <p id="show6"></p>
+    <script>
+        const member = {
+            id : "Lww",
+            name : "Lee",
+            age : 27
+        };
+        let text;
+        text = member.id + " " + member.name + " " + member.age;
+        document.getElementById("show1").innerHTML = text;
+        document.getElementById("show2").innerHTML = member["id"] + " " + member["name"] + " " + member["age"];
+
+        let text2="";
+        for (x in member){
+            text2 += member[x] + "<br>";
+        }
+        document.getElementById("show3").innerHTML = text2;
+        let text3="";
+        member.email = "email@test";
+        for (x in member){
+            text3 += member[x] + "<br>";
+        }
+        document.getElementById("show4").innerHTML = text3;
+
+        let text4="";
+        delete member.email;
+        for (x in member){
+            text4 += member[x] + "<br>";
+        }
+        document.getElementById("show5").innerHTML = text4;
+
+        const obj={
+            id:"ID",
+            pw:"PW",
+            obj2:{
+                name:"Name",
+                age:"age"
+            }
+        };
+        document.getElementById("show6").innerHTML = obj.id + " " + obj.obj2.name + " " + obj.obj2.age;
+    </script>
+</body>
+</html>

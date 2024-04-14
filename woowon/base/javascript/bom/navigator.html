@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="nav"></p>
+
+    <script>
+        let txt="";
+        txt += "appCodeName >> " + navigator.appCodeName + "<br>";
+        txt += "appName >> " + navigator.appName + "<br>";
+        txt += "appVersion >> " + navigator.appVersion + "<br>";
+        txt += "language >> " + navigator.language + "<br>";
+        txt += "platform >> " + navigator.platform + "<br>";
+        txt += "cookieEnabled >> " + navigator.cookieEnabled + "<br>";
+        txt += "onLine >> " + navigator.onLine + "<br>";
+        txt += "userAgent >> " + navigator.userAgent;
+        document.getElementById("nav").innerHTML = txt;
+    </script>
+</body>
+</html>

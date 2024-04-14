@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="arr1"></p>
+    <p id="arr2"></p>
+    <p id="arr3"></p>
+    <p id="arr4"></p>
+    <p id="arr5"></p>
+
+    <script>
+        const member = ["Lee","Kim","Park"];
+        let mem_str1 = member.join();
+        let mem_str2 = member.join("/");
+        let txt1 = "";
+        txt1 += mem_str1 + "<br>";
+        txt1 += mem_str2;
+        document.getElementById("arr1").innerHTML = txt1;
+
+        const animal = ["사자","호랑이","펭귄"];
+        let x = animal.push("토끼");
+        let txt2 = "";
+        txt2 += animal + "<br>";
+        txt2 += "-반환값" + x;
+        document.getElementById("arr2").innerHTML = txt2;
+
+        let animal_arr  = animal.pop();
+        let txt3 = "";
+        txt3 += animal + "<br>";
+        txt3 += "-반환값 >> "+animal_arr;
+        document.getElementById("arr3").innerHTML = txt3;
+
+        let aninal_arr2 = animal.shift();
+        let txt4 = "";
+        txt4 += animal + "<br>";
+        txt4 += "-반환값 >> " + aninal_arr2;
+        document.getElementById("arr4").innerHTML = txt4;
+
+        const fruits = ["사과","오렌지","수박","참외","딸기","배"];
+        let txt5 = "";
+        let fruits_arr;
+        fruits_arr = fruits.splice(1,2,"Apple");
+        txt5 += fruits + "<br>";
+        txt5 += "-반환값 >> " + fruits_arr + "<br>";
+
+        fruits_arr = fruits.splice(1,0,"Orange");
+        txt5 += fruits + "<br>";
+        txt5 += "-반환값 >> " + fruits_arr + "<br>";
+
+        fruits_arr = fruits.splice(2,1);
+        txt5 += fruits + "<br>";
+        txt5 += "-반환값 >> " + fruits_arr;
+        document.getElementById("arr5").innerHTML = txt5;
+    </script>
+</body>
+</html>

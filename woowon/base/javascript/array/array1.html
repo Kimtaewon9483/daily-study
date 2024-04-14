@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="arr1"></p>
+    <p id="arr2"></p>
+    <p id="arr3"></p>
+    <p id="arr4"></p>
+    <p id="arr5"></p>
+
+    <script>
+        const fruits1 = ["사과","딸기","오렌지"];
+        let txt1 = "";
+        txt1 += fruits1 + "<br>";
+        txt1 += fruits1[0] + "<br>";
+        txt1 += fruits1[1] + "<br>";
+        txt1 += fruits1[2];
+        document.getElementById("arr1").innerHTML = txt1;
+
+        const fruits2 = new Array("오렌지","사과","딸기","수박");
+        document.getElementById("arr2").innerHTML = fruits2;
+
+        const fruits3 = new Array("딸기","사과");
+        fruits3[0]="오렌지";
+        document.getElementById("arr3").innerHTML = fruits3;
+
+        const member1 = ["Lee","010-1234-5678"];
+        const member2 = {name:"Lee",phone:"010-1234-5678"};
+        let txt2 = "";
+        txt2 += typeof member1 + "<br>";
+        txt2 += typeof member2 + "<br>";
+        txt2 += member1[0] + "<br>";
+        txt2 += member2.name;
+        document.getElementById("arr4").innerHTML = txt2;
+
+        const fruits4 = ["사과","딸기","오렌지"];
+        let txt3 = "<ul>";
+        for(let i=0;i<fruits4.length;i++){
+            txt3 += "<li>" + fruits4[i] + "</li>";
+        }
+        txt3 += "</ul>";
+        document.getElementById("arr5").innerHTML = txt3;
+    </script>
+</body>
+</html>

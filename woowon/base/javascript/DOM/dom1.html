@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="dom1"></p>
+    <form name = "form1">
+        Name : <input type="text" name="name">
+        <button onclick="get_name()">Button</button>
+    </form>
+    <script>
+        document.getElementById("dom1").innerHTML = "Hello";
+
+        window.onload = function(){
+            let element = document.createElement("h1");
+            let text = document.createTextNode("Title");
+            element.appendChild(text);
+            document.body.appendChild(element);
+        }
+
+        function get_name(){
+            let text = document.form1.name.value;
+            alert(text);
+        }
+    </script>
+</body>
+</html>

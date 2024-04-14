@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div,p,img{margin:10px;border:1px solid red;}
+    </style>
+    <div onclick="func(event)">
+        <p>
+            <img src="img/img.png">
+        </p>
+    </div>
+    <span id="spn"></span>
+    
+    <script>
+        function func(event){
+            let text = event.target.tagName;
+            document.getElementById("spn").innerHTML = text;
+        }
+    </script>
+</body>
+</html>

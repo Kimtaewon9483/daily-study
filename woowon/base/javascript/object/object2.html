@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="show1"></p>
+    <p id="show2"></p>
+    
+    <script>
+        const show={
+            name : "Name",
+            age : "age",
+            intro:function(){
+                return "Name = "+this.name+", Age:"+this.age;
+            }
+        };
+        document.getElementById("show1").innerHTML=show.intro();
+
+        show.getName = function(){
+            return "Name = "+this.age;
+        }
+        document.getElementById("show2").innerHTML=show.getName();
+    </script>
+</body>
+</html>

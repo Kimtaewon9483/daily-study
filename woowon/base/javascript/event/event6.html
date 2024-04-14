@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="func()">
+    <p id="load"></p>
+
+    <label>
+        fruits:
+        <select id="fr" name="fruit">
+            <option value="">select</option>
+            <option valie="orange">orange</option>
+            <option valie="apple">apple</option>
+            <option valie="banana">banana</option>
+        </select>
+    </label>
+    <p id="fruits_text"></p>
+
+    <input type="text" id="input1" size="80"><br>
+    <input type="text" id="input2" size="80"><br>
+    <input type="text" id="input3" size="80">
+    <p id="show"></p>
+
+    <script>
+        function func(){
+            document.getElementById("load").innerHTML = "Page Load~";
+        }
+
+        const f = document.getElementById("fr");
+        f.addEventListener("change",(event)=>{
+            document.getElementById("fruits_text").innerHTML = "Fruits >> " + event.target.value;
+        });
+
+        const x = document.getElementById("input1");
+        const y = document.getElementById("input2");
+        const z = document.getElementById("input3");
+        x.value="텍스트 선택후 Ctrl + C";
+        y.value="텍스트 선택후 Ctrl + X";
+        z.value="텍스트 선택후 Ctrl + V";
+        x.addEventListener("copy",func1);
+        y.addEventListener("cut",func2);
+        z.addEventListener("paste",func3);
+        function func1(){
+            document.getElementById("show").innerHTML = "COPY";
+        }
+        function func2(){
+            document.getElementById("show").innerHTML = "CUT";
+        }
+        function func3(){
+            document.getElementById("show").innerHTML = "PASTE";
+        }
+    </script>
+</body>
+</html>

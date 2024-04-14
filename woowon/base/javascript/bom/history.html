@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="history1"></p>
+    <button onclick="goPage2()">2 page go</button>
+
+    <script>
+        document.getElementById("history1").innerHTML = history.length;
+
+        function goPage2(){
+            history.go(-2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="show1"></p>
+    <p id="show2"></p>
+    <script>
+        class Member{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            getAge(){
+                return "Age => "+ this.age;
+            }
+        }
+        const mem1 = new Member("Lee",25);
+        document.getElementById("show1").innerHTML = "Name=> "+mem1.name + ", "+mem1.getAge();
+
+        class Id extends Member{
+            constructor(name,age,id){
+                super(name,age);
+                this.id = id;
+            }
+            getid(){
+                return "Id=> "+this.id;
+            }
+            static getCountry(){
+                return "Korea";
+            }
+        }
+        const mem2 = new Id("Kim",20,"Id_Kim")
+        document.getElementById("show2").innerHTML = "Name=> "+mem2.name + ", "+mem2.getAge() + "," + mem2.getid()+"<br>"+Id.getCountry();
+
+    </script>
+</body>
+</html>

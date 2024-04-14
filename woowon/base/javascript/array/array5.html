@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="arr1"></p>
+    <p id="arr2"></p>
+
+    <script>
+        const array1 = [[1,2],[3,4],[5,6],[7,8]];
+        let txt1 = "";
+        txt1 += array1[2][0] + "<br>";
+        txt1 += array1[2][1];
+        document.getElementById("arr1").innerHTML = txt1;
+
+        const array2 = new Array(4);
+        for(var i=0;i<array2.length;i++){
+            array2[i] = new Array(3);
+        }
+        let num = 1;
+        for(var i=0;i<4;i++){
+            for(var j=0;j<3;j++){
+                array2[i][j] = num;
+                num++;
+            }
+        }
+        let txt2 = "";
+        for(var i=0;i<4;i++){
+            for(var j=0;j<3;j++){
+                txt2 += array2[i][j] + " ";
+            }
+            txt2 += "<br>";
+        }
+        document.getElementById("arr2").innerHTML = txt2;
+    </script>
+</body>
+</html>

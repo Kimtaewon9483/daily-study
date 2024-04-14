@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="reg1"></p>
+    <p id="reg2"></p>
+    <p id="reg3"></p>
+    <p id="reg4"></p>
+    <p id="reg5"></p>
+    <p id="reg6"></p>
+    <p id="reg7"></p>
+    <p id="reg8"></p>
+    <p id="reg9"></p>
+    <p id="reg10"></p>
+    <p id="reg11"></p>
+    <p id="reg12"></p>
+
+    <script>
+        let str1 = "cat cut dog orange apple";
+        let patten1 = /c.t/g;
+        let rs1 = str1.match(patten1);
+        document.getElementById("reg1").innerHTML = rs1;
+
+        let str2 = "Discord loading:25%...";
+        let patten2 = /\w/g;
+        let rs2 = str2.match(patten2);
+        document.getElementById("reg2").innerHTML = rs2;
+        let patten3 = /\W/g;
+        let rs3 = str2.match(patten3);
+        document.getElementById("reg3").innerHTML = rs3;
+
+        let str3 = "Phone Number 010-1234-5678";
+        let patten4 = /\d/g;
+        let rs4 = str3.match(patten4);
+        document.getElementById("reg4").innerHTML = rs4;
+        let patten5 = /\D/g;
+        let rs5 = str3.match(patten5);
+        document.getElementById("reg5").innerHTML = rs5;
+
+        let str4 = "Hello Friend!";
+        let patten6 = /\s/g;
+        let rs6 = str4.replace(patten6,"_");
+        document.getElementById("reg6").innerHTML = rs6;
+        let patten7 = /\S/g;
+        let rs7 = str4.replace(patten7,"#");
+        document.getElementById("reg8").innerHTML = rs7;
+
+        let str5 = "Hello orange, Friend apple";
+        let patten8 = /\bHello/g;
+        let patten9 = /e\b/g;
+        let rs8 = str5.replace(patten8,"#");
+        let rs9 = str5.replace(patten9,"#");
+        document.getElementById("reg9").innerHTML = rs8;
+        document.getElementById("reg10").innerHTML = rs9;
+
+        let str6 = "Hello apple, Hello orange, Hello!";
+        let patten10 = /\Bll/g;
+        let patten11 = /e\B/g;
+        let rs10 = str6.replace(patten10,"_");
+        let rs11 = str6.replace(patten11,"_");
+        document.getElementById("reg11").innerHTML = rs10;
+        document.getElementById("reg12").innerHTML = rs11;
+    </script>
+</body>
+</html>

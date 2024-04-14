@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="num1"></p>
+    <p id="num2"></p>
+
+    <script>
+        let x = Number.MAX_VALUE;
+        let y = Number.MIN_VALUE;
+        document.getElementById("num1").innerHTML = "Number.MAX_VALUE = " + x + "<br>Number.MIN_VALUE = " + y; 
+
+        let z = Number.MAX_SAFE_INTEGER;
+        let k = Number.MIN_SAFE_INTEGER;
+        document.getElementById("num2").innerHTML = "Number.MAX_SAFE_INTEGER = " + z + "<br>Number.MIN_SAFE_INTEGER = " + k;
+    </script>
+</body>
+</html>

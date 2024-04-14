@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="reg1"></p>
+    <p id="reg2"></p>
+
+    <script>
+        let str = "We are the Orange!";
+        let pat1 = /are/g;
+        let rs1 = pat1.exec(str);
+        let rs2 = /id/g.exec(str);
+        let txt1 = "";
+        txt1 += rs1 + "<br>" + rs2;
+        document.getElementById("reg1").innerHTML = txt1;
+
+        let pat2 = /[a-g]/g;
+        let rs3 = pat2.test(str);
+        let rs4 = /[0-9]/g.test(str);
+        let txt2 = "";
+        txt2 += rs3 + "<br>" + rs4;
+        document.getElementById("reg2").innerHTML = txt2;
+    </script>
+</body>
+</html>

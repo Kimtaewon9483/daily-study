@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="Add"></p>
+    <p id="Minus"></p>
+    <p id="Hello"></p>
+    <p id ="Add2"></p>
+    <p id ="Minus2"></p>
+    <script>
+        hello();
+        hello();
+        function hello(){
+            document.write("Hello!<br>");
+        }
+
+        let addResult;
+        addResult = add(10,20);
+        document.getElementById("Add").innerHTML = "Add : " + addResult;
+        function add(a,b){
+            result = a+b;
+            return result;
+        }
+
+        // 익명함수
+        let minus = function(a,b){return a-b};
+        let minusResult = minus(30,10);
+        document.getElementById("Minus").innerHTML = "Minus : " + minusResult;
+
+        // 자기호출 익명함수
+        (function(){
+            document.getElementById("Hello").innerHTML = "Hello";
+        })();   
+        // 화살표 함수
+        let z = (x,y) => x+y;
+        document.getElementById("Add2").innerHTML = "Add2 : " + z(10,25);
+
+    </script>
+</body>
+</html>

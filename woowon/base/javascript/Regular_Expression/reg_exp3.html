@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="reg1"></p>
+    <p id="reg2"></p>
+    <p id="reg3"></p>
+    <p id="reg4"></p>
+    <p id="reg5"></p>
+    <p id="reg6"></p>
+    <p id="reg7"></p>
+    <p id="reg8"></p>
+
+    <script>
+        let str1 = "wooooow! woooooo?";
+        let pat1 = /o+/g;
+        let rs1 = str1.match(pat1);
+        document.getElementById("reg1").innerHTML = rs1;
+
+        let str2 = "rrrrs, wwwwwoooo";
+        let pat2 = /wo*/g;
+        let rs2 = str2.match(pat2);
+        document.getElementById("reg2").innerHTML = rs2;    
+        
+        let str3 = "Ah okay! aahh, ahhhhh!";
+        let pat3 = /ah?/g;
+        let rs3 = str3.match(pat3);
+        document.getElementById("reg3").innerHTML = rs3;
+
+        let str4 = "1 12 123 1234";
+        let pat4 = /\d{3}/g;
+        let rs4 = str4.match(pat4);
+        document.getElementById("reg4").innerHTML = rs4;
+
+        let str5 = "hello hello llow";
+        let pat5 = /^he/g;
+        let rs5 = str5.replace(pat5,"HE");
+        document.getElementById("reg5").innerHTML = rs5;
+        let pat6 = /ow$/g;
+        let rs6 = str5.replace(pat6,"OW");
+        document.getElementById("reg6").innerHTML = rs6;
+
+        let str6 = "his cat her cat your cat";
+        let pat7 = /cat(?= your)/g;
+        let rs7 = str6.replace(pat7,"CAT");
+        document.getElementById("reg7").innerHTML = rs7;
+
+        let pat8 = /cat(?! your)/g;
+        let rs8 = str6.replace(pat8,"CAT");
+        document.getElementById("reg8").innerHTML = rs8;
+    </script>
+</body>
+</html>

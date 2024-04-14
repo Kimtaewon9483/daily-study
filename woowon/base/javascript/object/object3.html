@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="show1"></p>
+    <p id="show2"></p>
+    <p id="show3"></p>
+    <script>
+        function Member(name,age){
+            this.name = name;
+            this.age = age;
+            this.getName = function(){
+                return "My name -> "+this.name;
+            }
+        }
+        const mem1 = new Member("Lee",27);
+        const mem2 = new Member("Kim",26);
+
+        let text="";
+        text += mem1.name+"<br>";
+        text += mem2.name+"<br>";
+        document.getElementById("show1").innerHTML=text;
+
+        document.getElementById("show2").innerHTML = "Name = " + mem1.name + "<br>" + mem1.getName();
+        
+        // Member.id="NameId";
+        Member.prototype.id = "NameId";
+        Member.prototype.getId = function(){
+            return "Id => "+this.id;
+        }
+        const mem3 = new Member("Park",25);
+        document.getElementById("show3").innerHTML = "id=>"+mem3.id + ", name=>"+mem3.name;
+    </script>
+</body>
+</html>

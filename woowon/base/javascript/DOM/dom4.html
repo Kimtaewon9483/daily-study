@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Title</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+
+    <form name="f1">
+        Name : <input type="text" name="name"><br>
+        ID : <input type="text" name="id"><br>
+    </form>
+    <button onclick="getInput()">OK</button>
+    <p id="p3"></p>
+
+    <ul>
+        <li><a href="https://google.com">Google</a></li>
+    </ul>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <script>
+        document.getElementById("p1").innerHTML = document.URL;
+        document.getElementById("p2").innerHTML = document.title;
+        document.title = "NEW TITLE";
+
+        function getInput(){
+            const f = document.forms["f1"];
+            let txt1 = "";
+            for(let i=0;i<f.length;i++){
+                txt1 += f.elements[i].value + "<br>";
+            }
+            document.getElementById("p3").innerHTML = txt1;
+        }
+
+        document.getElementById("p4").innerHTML = "링크수 >> " + document.links.length;
+        document.getElementById("p5").innerHTML = "Link >> " + document.links[0].href;
+    </script>
+</body>
+</html>

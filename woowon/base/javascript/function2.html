@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="Add"></p>
+    <p id="Add2"></p>
+    <p id="Sum"></p>
+    <script>
+        function add(a,b=10){return a+b;}
+        document.getElementById("Add").innerHTML = "Add : " + add(10);
+        document.getElementById("Add2").innerHTML = "Add2 : " + add(10,50);
+
+        function sum(...num){
+            let sum = 0;
+            for(let score of num){
+                sum += score;
+            }
+            return sum;
+        }
+        let sumResult = sum(10,20,30,40,50);
+        document.getElementById("Sum").innerHTML = "Sum : " + sumResult;
+    </script>
+</body>
+</html>

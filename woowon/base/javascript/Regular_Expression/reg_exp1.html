@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="reg1"></p>
+    <p id="reg2"></p>
+
+    <script>
+        let str1 = "Hello Apple";
+        let patten1 = /Apple/;
+        let rs1 = str1.replace(patten1,"orange");
+        document.getElementById("reg1").innerHTML = rs1;
+
+        let str2 = "Orange Banana orange banana ORANGE BANANA";
+        let patten2 = /orange/ig;
+        let rs2 = str2.replace(patten2,"APPLE");
+        document.getElementById("reg2").innerHTML = rs2;
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="reg1"></p>
+    <p id="reg2"></p>
+    <p id="reg3"></p>
+    <p id="reg4"></p>
+
+    <script>
+        let str1 = "Orange orange Apple Apple";
+        let pat1 = /[ae]/g;
+        let pat2 = /[o-z]/g;
+        let pat3 = /[A-C]/g;
+        let rs1 = ""
+        rs1 += str1.match(pat1) + "<br>";
+        rs1 += str1.match(pat2) + "<br>";
+        rs1 += str1.match(pat3);
+        document.getElementById("reg1").innerHTML = rs1;
+
+        let pat4 = /[^ae]/g;
+        let pat5 = /[^o-z]/g;
+        let pat6 = /[^A-C]/g;
+        let rs2 = "";
+        rs2 += str1.match(pat4) + "<br>";
+        rs2 += str1.match(pat5) + "<br>";
+        rs2 += str1.match(pat6);
+        document.getElementById("reg2").innerHTML = rs2;
+
+        let str2 = "1 12 123 1234 12345 6 67 678 6789 67890";
+        let pat7 = /[15]/g;
+        let pat8 = /[6-9]/g;
+        let rs3 = "";
+        rs3 += str2.match(pat7) + "<br>";
+        rs3 += str2.match(pat8);
+        document.getElementById("reg3").innerHTML = rs3;
+
+        let str3 = "Hello Orange, Hello Apple, Friend orange, Friend apple";
+        let pat9 = /(Orange|orange|Apple|apple)/g;
+        let rs4 = str3.match(pat9);
+        document.getElementById("reg4").innerHTML = rs4;
+    </script>
+</body>
+</html>

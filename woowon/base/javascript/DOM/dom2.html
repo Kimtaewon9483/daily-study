@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">Hello!</p>
+    <button onclick="changeColor('red')";>RED</button>
+    <button onclick="changeColor('blue')";>BLUE</button>
+
+    <div id="parent">
+        <p>HEL</p>
+        <p>LO!</p>
+        <p class="ch">FR</p>
+        <p class="ch">IE</p>
+        <p class="ch">ND!</p>
+        <p class="ch2">CHILD2</p>
+        <p class="ch2">CHILD2</p>
+    </div>
+    <h1 id="title">Title</h1>
+    <p id="sub_title">Sub_Title</p>
+    <ul>
+        <li>First</li>
+        <li class="item">ITEM1</li>
+        <li class="item">ITEM2</li>
+        <li class="item">ITEM3</li>
+    </ul>
+    <script>
+        function changeColor(color){
+            const elem = document.getElementById("p1");
+            elem.style.color = color;
+        }
+
+        const x = document.getElementById("parent");
+        const y = x.getElementsByTagName("p");
+        y[0].style.color="red";
+
+        const z = x.getElementsByClassName("ch");
+        for(let i=0;i<z.length;i++){
+            z[i].style.color="blue";
+        }
+
+        const ch_x = document.querySelector("p.ch2");
+        ch_x.style.backgroundColor="red";
+
+        const title_x = document.querySelectorAll("h1#title");
+        const sub_y = document.querySelectorAll("p#sub_title");
+        const item_z = document.querySelectorAll("li.item");
+        title_x[0].style.backgroundColor="red";
+        sub_y[0].style.backgroundColor="green";
+        item_z[2].style.backgroundColor="blue";
+    </script>
+</body>
+</html>

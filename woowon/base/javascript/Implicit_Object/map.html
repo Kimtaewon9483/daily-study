@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="map1"></p>
+    <p id="map2"></p>
+    <p id="map3"></p>
+    <p id="map4"></p>
+    <p id="map5"></p>
+    <p id="map6"></p>
+
+    <script>
+        const fruits = new Map([
+            ["Apple",10],
+            ["Orange",20]
+        ]);
+        let txt1 = "";
+        fruits.forEach(function(value,key){
+            txt1 += "key >> " + key + ", value >> " + value + "<br>";
+        })
+        document.getElementById("map1").innerHTML = txt1;
+
+        const pets = new Map();
+        pets.set("DOG",100);
+        pets.set("CAT",200);
+        let txt2 = "";
+        pets.forEach(function(value,key){
+            txt2 += "key >> " + key + ", value >> " + value + "<br>";
+        })
+        document.getElementById("map2").innerHTML = txt2;
+        document.getElementById("map3").innerHTML = pets.get("CAT");
+        document.getElementById("map4").innerHTML = pets.has("CAT") + ", " + pets.has("bird");
+        
+        pets.delete("DOG");
+        let txt3 = "";
+        pets.forEach(function(value,key){
+            txt3 += "key >> " + key + ", value >> " + value + "<br>";
+        })
+        document.getElementById("map5").innerHTML = txt3;
+
+        const member = new Map([
+            ["Lee",100],
+            ["Kim",200],
+            ["Park",300]
+        ]);
+        document.getElementById("map6").innerHTML = member.size; 
+    </script>
+</body>
+</html>

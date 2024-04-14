@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1">
+        ID : <input type = "text" name="id">
+        Phone : <input type = "text" id="num">
+    </form>
+    <button onclick="validateForm()">OK</button>
+    <p id="id_check"></p>
+    <p id="phone_check"></p>
+
+    <script>
+        function validateForm(){
+            if(document.forms["form1"]["id"].value==""){
+                document.getElementById("id_check").innerHTML = "ID check!";
+            }
+            let num = document.getElementById("num").value;
+            if(isNaN(num)||num<1||num>10){
+                document.getElementById("phone_check").innerHTML = "1~10 number";
+            }else{
+                document.getElementById("phone_check").innerHTML = "Phone OK";
+            }
+        }
+    </script>
+</body>
+</html>

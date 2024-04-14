@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="arr1"></p>
+    <p id="arr2"></p>
+    <p id="arr3"></p>
+    <p id="arr4"></p>
+
+    <script>
+        const animal1 = ["사자","호랑이","표범"];
+        const animal2 = ["토끼","고라니"];
+        let animal_arr = animal1.concat(animal2);
+        let txt1 = "";
+        txt1 += animal_arr + "<br>";
+        txt1 += animal1;
+        document.getElementById("arr1").innerHTML = txt1;
+
+        const number = [1,2,3,4,5,6,7,8,9,10];
+        let number_arr = number.copyWithin(4,0);
+        let txt2 = "";
+        txt2 += number_arr + "<br>";
+        txt2 += number;
+        document.getElementById("arr2").innerHTML = txt2;
+
+        let number2 = [1,2,3,4,5,6,7,8,9,10];
+        let number_arr2 = number2.copyWithin(5,0,3);
+        document.getElementById("arr3").innerHTML = number_arr2;
+
+        const animals = ["코끼리","사자","호랑이","사슴","펭귄"];
+        let txt3 = "";
+        animals.sort();
+        txt3 += animals + "<br>";
+        animals.reverse();
+        txt3 += animals;
+        document.getElementById("arr4").innerHTML = txt3;
+    </script>
+</body>
+</html>

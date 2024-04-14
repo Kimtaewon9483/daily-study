@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="string1"></p>
+    <p id="string2"></p>
+    <p id="string3"></p>
+    <p id="string4"></p>
+    <p id="string5"></p>
+
+    <script>
+        let str1 = "Hello world";
+        let txt1 = "";
+        txt1 += str1.indexOf("o")+"<br>";
+        txt1 += str1.indexOf("o",5);
+        document.getElementById("string1").innerHTML = txt1;
+
+        document.getElementById("string2").innerHTML = str1.lastIndexOf("o");
+
+        txt2 = "";
+        txt2 += str1.search("e")+"<br>";
+        txt2 += str1.search("w")+"<br>";
+        txt2 += str1.search("Test");
+        document.getElementById("string3").innerHTML = txt2;
+
+        let str2 = "Hello TEST Code";
+        let arr = str2.match(/e/gi);
+        document.getElementById("string4").innerHTML = arr;
+
+        let rs1 = str2.includes("TEST");
+        let rs2 = str2.includes("World");
+        document.getElementById("string5").innerHTML = rs1 + ", " + rs2;
+    </script>
+</body>
+</html>

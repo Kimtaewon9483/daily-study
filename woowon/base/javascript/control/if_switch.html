@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 10;
+        let b = 20;
+        if(a>b){
+            document.write("a가 더 큼<br>");
+        }else{
+            document.write("b가 더 큼<br>");
+        }
+        let score = 75;
+        if(score>90){
+            grade = "A";
+        }else if(score>=80){
+            grade = "B";
+        }else if(score>=70){
+            grade = "C";
+        }else if(score>=70){
+            grade = "D";
+        }else{
+            grade = "F";
+        }
+        document.write(grade+"<br>");
+
+        let num1 = 10;
+        let num2 = 20;
+        let op = "-";
+        switch(op){
+            case "+":
+                rs = num1+num2;
+                document.write(rs);
+                break;
+            case "-":
+                rs = num1-num2;
+                document.write(rs);
+                break;
+            default:
+                document.write("error");
+                break;
+        }
+    </script>
+</body>
+</html>

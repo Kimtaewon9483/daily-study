@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="math1"></p>
+    <p id="math2"></p>
+    <p id="math3"></p>
+    <p id="math4"></p>
+    <p id="math5"></p>
+    <p id="math6"></p>
+    <p id="math7"></p>
+    <p id="math8"></p>
+    <p id="math9"></p>
+
+    <script>
+        let max = Math.max(5,2,3,36,23);
+        let min = Math.min(5,2,3,36,23);
+        let txt1 = "";
+        txt1 += "Max >> " + max + "<br>";
+        txt1 += "Min >> " + min + "<br>";
+        document.getElementById("math1").innerHTML = txt1;
+
+        let a = Math.abs(-2);
+        let b = Math.abs("A");
+        let c = Math.abs(6);
+        let txt2 = "abs >> " + a + ", " + b + ", " + c;
+        document.getElementById("math2").innerHTML = txt2;
+
+        let f1 = Math.round(-3.2);
+        let f2 = Math.round(2.5);
+        let f3 = Math.round(2.4);
+        let txt3 = "round >> " + f1 + ", " + f2 + ", " + f3;
+        document.getElementById("math3").innerHTML = txt3;
+
+        let fl1 = Math.floor(7.8);
+        let fl2 = Math.floor(7.4);
+        let txt4 = "floor >> " + fl1 + ", " + fl2;
+        document.getElementById("math4").innerHTML = txt4;
+
+        let c1 = Math.ceil(2.8);
+        let c2 = Math.ceil(2.4);
+        let txt5 = "ceil >> " + c1 + ", " + c2;
+        document.getElementById("math5").innerHTML = txt5;
+
+        let p1 = Math.pow(2,4);
+        let p2 = Math.pow(3,3);
+        let txt6 = "pow >> " + p1 + ", " + p2;
+        document.getElementById("math6").innerHTML = txt6;
+
+        let s1 = Math.sqrt(100);
+        let s2 = Math.sqrt(25);
+        let txt7 = "sqrt >> " + s1 + ", " + s2;
+        document.getElementById("math7").innerHTML = txt7;
+
+        let l1 = Math.log(2.8);
+        let l2 = Math.log(1);
+        let l3 = Math.log("A");
+        let txt8 = "log >> " + l1 + ", " + l2 + ", " + l3;
+        document.getElementById("math8").innerHTML = txt8;
+
+        let random1 = Math.random();
+        let random2 = Math.floor((Math.random()*100)+1);
+        let txt9 = "random >> " + random1 + ", " + random2;
+        document.getElementById("math9").innerHTML = txt9;
+    </script>
+</body>
+</html>

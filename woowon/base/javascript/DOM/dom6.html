@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1">
+        <p>First</p>
+        <p>Second</p>
+        <p id="three">Three</p>
+        <p>Four</p>
+        <p id="del">DELETE!</p>
+    </div>
+
+    <script>
+        const elem1 = document.createElement("p");
+/*
+        const text_node1 = document.createTextNode("NEW!");
+        elem1.appendChild(text_node1);
+        document.getElementById("box1").append(elem1);
+
+        const text_node2 = document.createTextNode("ORANGE");
+        const p = document.getElementById("three");
+        elem1.appendChild(text_node2);
+        document.getElementById("box1").insertBefore(elem1,p);
+
+        const elem2 = document.getElementById("del");
+        elem2.remove();
+*/
+        const text_node3 = document.createTextNode("NEW NEXT");
+        elem1.append(text_node3);
+        const p2 = document.getElementById("del");
+        document.getElementById("box1").replaceChild(elem1,p2);
+    </script>
+</body>
+</html>

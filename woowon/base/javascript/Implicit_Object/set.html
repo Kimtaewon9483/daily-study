@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="set1"></p>
+    <p id="set2"></p>
+    <p id="set3"></p>
+    <p id="set4"></p>
+    <p id="set5"></p>
+    <script>
+        const set1 = new Set([2,3,5,5,6,6,7,7]);
+        let txt1 = "";
+        for(let value of set1){
+            txt1 += value + "<br>";
+        }
+        document.getElementById("set1").innerHTML = txt1;
+
+        const set2 = new Set();
+        set2.add("APPLE");
+        set2.add("ORANGE");
+        let txt2 = "";
+        set2.forEach(function(value){
+            txt2 += value + "<br>";
+        })
+        document.getElementById("set2").innerHTML = txt2;
+
+        const set3 = new Set("HELLO");
+        let txt3 = "";
+        for(let value of set3){
+            txt3 += value + "<br>";
+        }
+        txt3 += "Set Size >> " + set3.size;
+        document.getElementById("set3").innerHTML = txt3;
+
+        const set4 = new Set(["APPLE","ORANGE","BANANA"]);
+        let txt4 = set4.has("APPLE") + ", " + set4.has("MILK");
+        document.getElementById("set4").innerHTML = txt4;
+        
+        set4.delete("BANANA");
+        let txt5 = "";
+        for(let value of set4){
+            txt5 += value + "<br>";
+        }
+        document.getElementById("set5").innerHTML = txt5;
+    </script>
+</body>
+</html>

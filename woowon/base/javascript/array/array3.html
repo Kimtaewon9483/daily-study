@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="arr1"></p>
+    <p id="arr2"></p>
+    <p id="arr3"></p>
+    <p id="arr4"></p>
+    <p id="arr5"></p>
+    <p id="arr6"></p>
+
+    <script>
+        const fruits = ["사과","배","오렌지","사과","귤"];
+        let index1 = fruits.indexOf("배");
+        let index2 = fruits.indexOf("사과",2);
+        let index3 = fruits.indexOf("귤");
+        let txt1 = "";
+        txt1 += index1 + "<br>";
+        txt1 += index2 + "<br>";
+        txt1 += index3;
+        document.getElementById("arr1").innerHTML = txt1;
+
+        let txt2 = "";
+        let rs1 = fruits.includes("배");
+        let rs2 = fruits.includes("파인애플");
+        txt2 += rs1 + "<br>";
+        txt2 += rs2;
+        document.getElementById("arr2").innerHTML = txt2;
+
+        const animal = ["호랑이","고라니","박쥐","여우","늑대"];
+        let arr1 = animal.slice(1,3);
+        let arr2 = animal.slice(2,);
+        let arr3 = animal.slice(-3,-1);
+        let txt3 = "";
+        txt3 += arr1 + "<br>";
+        txt3 += arr2 + "<br>";
+        txt3 += arr3;
+        document.getElementById("arr3").innerHTML = txt3;
+
+        const scores = [70,80,90,20,30];
+        score_arr = scores.find(function(score){
+            return score>=80;
+        });
+        document.getElementById("arr4").innerHTML = score_arr;
+
+        let txt4 = "";
+        txt4 += animal + "<br>";
+        animal.forEach(func);
+        function func(item, index){
+            txt4 += index + ":" + item + "<br>";
+        }
+        document.getElementById("arr5").innerHTML = txt4
+
+        const number = [1,2,3,4,5];
+        let arr = number.map(function(num){
+            return num * num;
+        });
+        document.getElementById("arr6").innerHTML = arr;
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeText(this)">Click!</button><br>
+    
+    <button onclick="document.getElementById('time').innerHTML = Date()">현재시간</button>
+    <p id="time"></p>
+
+    <button id="btn">Click</button>
+    <p id="hello"></p>
+    
+    <script>
+        function changeText(elem){
+            elem.innerHTML = "OK!";
+        }
+
+        let txt = "";
+        document.getElementById("btn").addEventListener("click",function(){
+            txt += "Hello!";
+            document.getElementById("hello").innerHTML = txt;
+        });
+        document.getElementById("btn").addEventListener("click",function(){
+            txt += "Friend!";
+            document.getElementById("hello").innerHTML = txt;
+        });
+    </script>
+</body>
+</html>

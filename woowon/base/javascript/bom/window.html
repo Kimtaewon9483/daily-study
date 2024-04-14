@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="newWin()">New Window</button>
+    <button onclick="newWin2()">New Window2</button>
+    <br>
+    <button onclick="newWin3()">New Window3</button>
+    <button onclick="closeWin()">close Window</button>
+    <br>
+    <p id="show"></p>
+
+    <script>
+        function newWin(){
+            window.open("https://www.google.com");
+        }
+        function newWin2(){
+            window.open("https://www.google.com","_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+        }
+
+        let window1;
+        function newWin3(){
+            window1 = window.open("https://www.google.com");
+        }
+        function closeWin(){
+            console.log(window1);
+            window1.close();
+        }
+
+        let text = "";
+        text += "innerWidth >> " + window.innerWidth + "px<br>";
+        text += "innerHeight >> " + window.innerHeight + "px<br>";
+        text += "outerWidth >> " + window.outerWidth + "px<br>";
+        text += "outerHeight >> " + window.outerHeight + "px<br>";
+        document.getElementById("show").innerHTML = text;
+    </script>
+</body>
+</html>

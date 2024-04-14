@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="date1"></p>
+    <p id="date2"></p>
+
+    <script>
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const date = now.getDate();
+        const hour = now.getHours();
+        const min = now.getMinutes();
+        const second = now.getSeconds();
+        let txt1 = now + "<br>";
+        txt1 += "YEAR >> " + year + ", MONTH >> " + month + ", DATE >> " + date + "<br>";
+        txt1 += "HOUR >> " + hour + ", MIN >> " + min + ", SCECOND >> " + second;
+        document.getElementById("date1").innerHTML = txt1;
+
+        const a = new Date(2025,11,11,1,1,1);
+        const b = new Date(2022,2,14,15,20);
+        const c = new Date(2000,2,22);
+        let txt2 = a + "<br>" + b + "<br>" + c;
+        document.getElementById("date2").innerHTML = txt2;
+    </script>
+</body>
+</html>

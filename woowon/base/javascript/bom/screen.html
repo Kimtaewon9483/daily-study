@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="screen1"></p>
+    <p id="screen2"></p>
+
+    <script>
+        let txt1 = "";
+        txt1 += "screen width >> " + screen.width + "px<br>";
+        txt1 += "screen height >> " + screen.height + "px<br>";
+        document.getElementById("screen1").innerHTML = txt1;
+
+        let txt2 = "color bit >> " + screen.colorDepth;
+        document.getElementById("screen2").innerHTML = txt2;
+    </script>
+</body>
+</html>

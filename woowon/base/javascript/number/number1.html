@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="num1"></p>
+    <p id="num2"></p>
+    <p id="num3"></p>
+    <p id="num4"></p>
+    <p id="num5"></p>
+
+    <script>
+        let a = 123.45;
+        let b = -10;
+        let c = 253e8;
+        let d = 253e-8;
+
+        let txt="";
+        txt += a + "<br>";
+        txt += b + "<br>";
+        txt += c + "<br>";
+        txt += d;
+        document.getElementById("num1").innerHTML = txt;
+
+        let i = 5;
+        let j = "5";
+        let k = 7;
+        document.getElementById("num2").innerHTML = "5+7 = "+ (i+k) + ", \"5\"+7 = " + (j+k);
+
+        let na1 = 5;
+        let na2 = "Number";
+        let na3 = "3";
+        let rs1 = na1/na2;
+        let rs2 = na1/na3;
+        document.getElementById("num3").innerHTML = "5/Number = " + rs1 + ", 5/\"3\" = " + rs2;
+
+        let ch = 27;
+        document.getElementById("num4").innerHTML = "16 = " + ch.toString(16) + ", 8 = " + ch.toString(8) + ", 10 = " + ch.toString(10) + ", 2 = " + ch.toString(2);
+
+        let x = 100;
+        let txt2 = "";
+        while(x != Infinity){
+            x = Math.pow(x,2);
+            txt2 += x+"<br>";
+        }
+        document.getElementById("num5").innerHTML = txt2;   
+    </script>
+</body>
+</html>

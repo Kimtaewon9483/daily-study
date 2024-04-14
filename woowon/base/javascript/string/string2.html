@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="string1"></p>
+    <p id="string2"></p>
+
+    <script>
+        let str1 = "Hello!";
+        let txt1 = "";
+        txt1 += str1.slice(3,5) + "<br>";
+        txt1 += str1.slice(2) + "<br>";
+        txt1 += str1.slice(-3);
+        document.getElementById("string1").innerHTML = txt1;
+
+        let txt2 = "";
+        txt2 += str1.substr(3,5) +  "<br>";
+        txt2 += str1.substr(2) + "<br>";
+        txt2 += str1.substr(-3);
+        document.getElementById("string2").innerHTML = txt2;
+    </script>
+</body>
+</html>

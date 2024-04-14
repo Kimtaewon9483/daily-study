@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">
+        <span style="color:red">Hello</span>
+    </p>
+
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <p id="p2">Hello2</p>
+
+    <script>
+        const x = document.getElementById("p1");
+        alert(x.innerHTML);
+        alert(x.innerText);
+
+        const list = document.querySelectorAll("li");
+        list[2].innerHTML = "<span style='color:red'>Text1</span>";
+        list[3].innerText = "Text2";
+
+        const p = document.getElementById("p2");
+        p.style.color="red";
+        p.style.backgroundColor="yellow";
+        p.style.border="solid 5px blue";
+    </script>
+</body>
+</html>

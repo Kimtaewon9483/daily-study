@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div#box1{border:solid 3px red;}
+        div#box2{border:solid 3px blue;}
+        div#box3{border:solid 3px pink;width: 500px;}
+        div#box4{border:solid 3px blue;width: 500px;}
+        p#p1 {border:solid 1px black;}
+        p#p2 {border:solid 1px black;}
+        p#p3 {border:solid 1px green;}
+        p#p4 {border:solid 1px green;}
+        div#box5{border:solid 3px black;width: 300px;height: 200px;}
+    </style>
+
+    <button onclick="showMessage1()">click!</button>
+    <button ondblclick="showMessage2()">double click!</button>
+    <p id="click1"></p>
+    <p id="click2"></p>
+
+    <button onmouseover="changeBg1(this)" onmouseout="changeBg2(this)">mouse on!</button>
+
+    <div id="box1" onmouseenter="increaseX()">
+        <p id="p1">p1</p>
+        <span id="spn1"></span>
+    </div>
+    <div id="box2" onmouseover="increaseY()">
+        <p id="p2">p2</p>
+        <span id="spn2"></span>
+    </div>
+    <div id="box3" onmouseleave="increase2X()">
+        <p id="p3">p3</p>
+        <span id="spn3"></span>
+    </div>
+    <div id="box4" onmouseout="increase2Y()">
+        <p id="p4">p4</p>
+        <span id="spn4"></span>
+    </div>
+
+    <div id="box5" onmousemove="showCoord(event)">
+        <p id="p5"></p>
+    </div>
+
+    <script>
+        function showMessage1(){
+            document.getElementById("click1").innerHTML = "Click!";
+        }
+        function showMessage2(){
+            document.getElementById("click2").innerHTML = "double click!";
+        }
+
+        function changeBg1(x){
+            x.style.backgroundColor = "Green";
+        }
+        function changeBg2(x){
+            x.style.backgroundColor = "";
+        }
+
+        let x = 0, y = 0;
+        function increaseX(){
+            x += 1;
+            document.getElementById("spn1").innerHTML = x;
+        }
+        function increaseY(){
+            y += 1;
+            document.getElementById("spn2").innerHTML = y;
+        }
+        let xx = 0, yy = 0;
+        function increase2X(){
+            xx += 1;
+            document.getElementById("spn3").innerHTML = xx;
+        }
+        function increase2Y(){
+            yy += 1;
+            document.getElementById("spn4").innerHTML = yy;
+        }
+
+        function showCoord(e){
+            let text = "x,y >> " + e.clientX + ", " + e.clientY;
+            document.getElementById("p5").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
