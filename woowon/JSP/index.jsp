@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>기본객체예제</h1>
 <ol>
 	<li>
 		<a href="<%= request.getContextPath() %>/object/Ex01.jsp">Ex01.jsp</a>
