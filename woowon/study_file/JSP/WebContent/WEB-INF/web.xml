@@ -14,12 +14,14 @@
   	<param-name>param2</param-name>
   	<param-value>value2</param-value>
   </context-param>
-  
+   
   <!-- session 유효시간(분단위) -->
+  <!--
   <session-config>
   	<session-timeout>10</session-timeout>
   </session-config>
-  
+   -->
+   
   <!-- DBCP-->
   <resource-ref>
   	<description>DBCP</description>

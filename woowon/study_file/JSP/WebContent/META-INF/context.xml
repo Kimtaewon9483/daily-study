@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+	<!-- name은 설정정보를 읽기 위한 이름, auth는 어디에서 사용할것인지(관리를 누가하는지) -->
+	<!-- type은 커넥션풀기능을 가진 클래스는 DataSource를 상속해서 만들기 떄문에 -->
+	<!-- max는 최대 만들수있는 커넥션의 갯수는 100개이다-->
+	<!-- maxIdle은 최대 살아있는 기본적은 커넥션은 30개까지 -->
+	<!-- maxWaitMillis는 커넥션을 사용하기위한 대기시간 -->
+	<Resource
+		name="jdbc/TestDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		
+		initialSize="50"
+		maxTotal="100"
+		maxIdle="30"
+		maxWaitMillis="1000"
+		
+		username="jsptest"
+		password="1234"
+		driverClassName="oracle.jdbc.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:xe"
+	/>
+</Context>
