@@ -59,6 +59,7 @@ java -jar lombok.jar
 
 ### java설정변경
 - xml로 설정된것이 아닌 java로 설정을 하도록 변경시킨다
+   
 ![5-1](./images/ch1/5-1.png)   
 ![5-2](./images/ch1/5-2.png)   
 - web.xml파일과 spring폴더를 제거한다
