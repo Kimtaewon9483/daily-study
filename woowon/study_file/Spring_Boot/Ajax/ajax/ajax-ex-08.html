@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ex07</title>
+    <!-- jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button onclick="ex08Fn()">ex08 함수호출</button>
+</body>
+<script>
+    const ex08Fn = () => {
+        const val1 = "Hello Spring Boot!!";
+
+        const params = {
+            "param1":val1,
+            "param2":"안녕"
+        }
+        $.ajax({
+            // 요청 방식
+            type: "post",
+            // 요청 주소
+            url : "/ex08",
+            // parameter 전달
+            data: JSON.stringify(params),
+            contentType: "application/json",
+            // 요청에 성공일 때 실행
+            success: function(res){
+                console.log("성공", res);
+                console.log(res[0]);
+                console.log(res[1]);
+                console.log(res[2]);
+                for(let i in res){
+                    console.log("i >> ",i);
+                    console.log(res[i]);
+                }
+            },
+            // 요청에 실패했을 때 실행
+            error: function(){
+                console.log("실패");
+            }
+        })
+    }
+</script>
+</html>
