@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>save</title>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- action 속성 : form에 작성한 데이터를 어디로 보낼지 지정 -->
+<form action="/member/save" method="post">
+    <!-- name속성 : 서버로 전송할 때 변수이름의 역할-->
+    <!-- onkeyup 사용자가 키보드를 입력할때 마다 함수호출 -->
+    <!-- onblur input box를 벗어나면 함수호출 -->
+    Email : <input type="text" name="memberEmail" id="memberEmail" onblur="emailCheck()">
+    <span id="check-result"></span><br>
+    Password : <input type="password" name="memberPassword"><br>
+    Name : <input type="text" name="memberName"><br>
+    <input type="submit" value="회원가입">
+</form>
+</body>
+<script th:inline="javascript">
+    const emailCheck = () => {
+        const email = document.getElementById("memberEmail").value;
+        const checkResult = document.getElementById("check-result");
+        console.log("입력값 >> " + email);
+        // ajax
+        $.ajax({
+            // 요청방식 : post , url : email-check , data : email
+            type : "post",
+            url : "/member/email-check",
+            data : {
+                "memberEmail":email
+            },
+            success : function(result){
+                console.log("요청성공 >> " + result);
+                if(result == "ok"){
+                    console.log("사용가능한 이메일");
+                    checkResult.style.color = "green";
+                    checkResult.innerHTML = "사용가능한 이메일";
+                }else{
+                    console.log("이미 사용중인 이메일");
+                    checkResult.style.color = "red";
+                    checkResult.innerHTML = "이미 사용중인 이메일";
+                }
+            },
+            error : function(err){
+                console.log("에러발생 >> " + err);
+            }
+        });
+    }
+</script>
+</html>

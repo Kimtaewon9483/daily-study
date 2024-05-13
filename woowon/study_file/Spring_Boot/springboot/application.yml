@@ -1,0 +1,19 @@
+server:
+    port: 8081
+
+# database
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 만들어둔 DB이름
+    url: jdbc:mysql://localhost:3306/spring_test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: springtest
+    password: 1234
+# jpa
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+     # create는 서버를 실행할때마다 테이블이 있다면 지우고 다시만든다
+        ddl-auto: update
