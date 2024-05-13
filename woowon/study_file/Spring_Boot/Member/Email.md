@@ -78,4 +78,4 @@ public String emailCheck(String memberEmail){
 
 ##### 결과
 ![1](../images/email/1.png)   
-![1](../images/email/2.png)   
+![1](../images/email/2.png)    
