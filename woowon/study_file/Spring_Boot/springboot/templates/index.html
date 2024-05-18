@@ -9,6 +9,24 @@
     <h2>Hello SpringBoot!!!</h2>
     <a href="/member/save">회원가입</a>
     <a href="/member/login">로그인</a>
-    <a href="/member/">회원목록</a>
+    <a href="/member/">회원목록</a><br>
+    <button onclick="saveReq()">글작성</button>
+    <button onclick="listReq()">글목록</button>
+    <button onclick="pagingReq()">페이징 목록</button>
 </body>
+<script>
+    // 게시글 작성
+    // function saveReq(){} 와 같음
+    const saveReq = () => {
+        location.href="/board/save";
+    }
+    const listReq = () => {
+        location.href="/board/";
+    }
+
+    // 페이징
+    const pagingReq = () => {
+        location.href="/board/paging";
+    }
+</script>
 </html>
