@@ -30,3 +30,31 @@
     - JPQL에서 N+1 문제를 일으킨다
 - @ManyToOne, @OneToOne은 기본이 즉시 로딩
     - @OneToMany, @ManyToMany는 기본이 지연 로딩
+
+### 영속성전의(CASCADE)
+- 특정엔티티를 영속상태로 만들 때 연관된 엔티티도 함께 영속 상태로 만들고 싶을떄
+    - 부모 엔티티를 저장할 때 자식 엔티티도 함께 저장
+- 지연로딩,즉시로딩과 관련 없음
+- 연관관계를 매핑하는 것과 관련 없음
+- 엔티티를 영속화할 때 연관된 엔티티도 함께 영속화하는 편라함을 제공
+- CascadeType.option
+    - ALL : 모두 적용
+    - PERSIST : 영속
+    - REMOVE : 삭제
+    - MERGE : 병합
+    - REFRESH : REFRESH
+    - DETACH : DETACH
+### 고아객체
+- 고아 객체 제거 : 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제
+- orphanRemoval = true
+- Parent parent1 = em.find(Parent.class, id);
+    - parent1.getChildren().remove(0);
+- 참조가 제거된 엔티티는 다른 곳에서 참조하지 않는 고아 객체로 보고 삭제가능
+- 참조하는 곳이 하나일 떄 사용해야한다
+- 특정 엔티티가 개인 소유할 때 사용
+- @OneToOne, @OneToMany만 가능하다
+- 영속성 전이 + 고아객체
+    - CascadeType.All + orphanRemovel=true
+    - 스스로 생명주기를 관리하는 엔티티는 em.persist()로 영속화, em.remove()로 제거
+    - 두 옵션을 모두 활성화 하면 부모 엔티티를 통해서 자식의 생명주기를 관리할 수 있음
+    
