@@ -35,5 +35,23 @@
         - JPA를 사용하면서 JDBC커넥션응 직접 사용하거나, 스프링 JdbcTemplate, 마이바티스등을 함께 사용 가능
         - 영속성 컨텍스트를 적절한 시점에 강제로 플러시가 필요하다
 
-
-
+### 기본문법, 쿼리API
+- JPQL은 객체지향 쿼리언어, 엔티티 객체를 대상으로 쿼리
+- SQL을 추상화 해서 특정 데이터베이스 SQL에 의존하지 않는다
+- JPQL은 결국 SQL로 변환된다
+- 엔티티와 속성은 대소문자 구분한다
+- JPQL키워드는 대소문자 구분하지 않는다
+- 엔티티 이름 사용, 테이블 이름이 아니다
+- 별칭은 필수(as는 생략이 가능하다)
+- TypeQuery는 반환타입이 명확할 때 사용
+- Query는 반환타입이 명확하지 않을 때 사용
+- query.getResultList() : 결과가 하나 이상일 때 리스트 반환
+    - 결과가 없다면 빈 리스트 반환
+- query.getSingleResult() : 결과가 정확히 하나일때, 단일 객체 반환
+    - 결과가 없으면 NoResultException
+    - 결과가 두개 이상이면 NonUniqueResultException
+- 파리미터 바인딩
+    - select m from Member m where m.username = :username
+    - setParameter("username", "member1")
+    - ?로도 가능하다 ?1로하면 serParameter를 1로 정한다
+    
