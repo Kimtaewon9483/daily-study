@@ -54,4 +54,40 @@
     - select m from Member m where m.username = :username
     - setParameter("username", "member1")
     - ?로도 가능하다 ?1로하면 serParameter를 1로 정한다
-    
+
+### 프로젝션
+- SELECT 절에 조회할 대상을 지정하는것
+- 프로젝션 대상 : 엔티티, 임베디드 타입, 스칼라 타입
+- 엔티티 프로젝션
+    - select m from Member m
+    - select m.team from Member m
+- 임베디드 타입 프로젝션
+    - select m.address From Member m
+- 스칼라 타입 프로젝션
+    - select m.username, m.age from Member m
+- DISTINCT로 중복제거가 가능하다
+- 여러 값 조회
+    - Query 타입으로 조회
+    - Object[] 타입으로 조회
+        ```
+        List resultList = em.createQuery("select distinct m.username, m.age from Member m").getResultList();
+            Object o = resultList.get(0);
+            Object[] result = (Object[])o;
+            System.out.println("username =>>>>> " + result[0]);
+            System.out.println("age =>>>>> " + result[1]);
+
+            List<Object[]> resultList2 = em.createQuery("select distinct m.username, m.age from Member m").getResultList();
+            Object[] result2 = resultList2.get(0);
+            System.out.println("username =>>>>> " + result2[0]);
+            System.out.println("age =>>>>> " + result2[1]);
+        ```
+    - new 명령어로 조회
+        - 단순 값을 DTO로 바로 조회
+        - 패키지 명을 포함한 전체 클래스 명 입력
+        - 순서와 타입이 일치하는 생성자 필요
+        ```
+        List<MemberDTO> result3 = em.createQuery("select new hellojpa.jpashop.domain.example.query.MemberDTO(m.username, m.age) from Member m", MemberDTO.class).getResultList();
+            MemberDTO memberDTO = result3.get(0);
+            System.out.println("memberDTO >> " + memberDTO.getUsername());
+            System.out.println("memberDTO >> " + memberDTO.getAge());
+        ```
