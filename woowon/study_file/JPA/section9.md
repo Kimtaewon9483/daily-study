@@ -91,3 +91,32 @@
             System.out.println("memberDTO >> " + memberDTO.getUsername());
             System.out.println("memberDTO >> " + memberDTO.getAge());
         ```
+
+### 페이징
+- JPA는 페이징을 두 API로 추상화
+    - setFirstResult : 조회 시작 위치
+    - setmaxResults : 조회할 데이터 수
+
+```
+List<Member> result = em.createQuery("select m from Member m order by m.age desc", Member.class)
+                .setFirstResult(1)
+                .setMaxResults(10)
+                .getResultList();
+```
+```
+  /* select
+        m 
+    from
+        Member m 
+    order by
+        m.age desc */ select
+            member0_.id as id1_0_,
+            member0_.age as age2_0_,
+            member0_.TEAM_ID as TEAM_ID4_0_,
+            member0_.username as username3_0_ 
+        from
+            Member member0_ 
+        order by
+            member0_.age desc limit ? offset ?
+```
+- 이런식으로 쿼리가 나가게된다
