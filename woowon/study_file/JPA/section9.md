@@ -133,4 +133,4 @@ List<Member> result = em.createQuery("select m from Member m order by m.age desc
         - select m,t from Memer m LEFT JOIN m.team t on t.name='A'
             - 팀의 이름이 A인 애만 조인
     - 연관관계가 없는 엔티티 외부조인(하이버네이트5.1부터)
-        - select m,t from Member m LEFT JOIN Team t on m.username = t.name
+        - select m,t from Member m LEFT JOIN Team t on m.username = t.name 
