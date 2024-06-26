@@ -120,3 +120,17 @@ List<Member> result = em.createQuery("select m from Member m order by m.age desc
             member0_.age desc limit ? offset ?
 ```
 - 이런식으로 쿼리가 나가게된다
+
+### 조인
+- 내부조인 : select m from Member m [INNER] join m.team t
+    - Member가 있고 Team이 없다면 데이터가 나오지 않는다
+- 외부조인 : select m from Member m LEFT[OUTER] join m.team t
+    - Member가 있고 Team이 없어도 Member는 조회가 된다
+- 세타 조인 : select count(m) from Member m, Team t where m.username = t.name
+    - 연관관계가 없는 관계를 비교해볼수 있다
+- ON절을 활용한 조인(JPA 2.1부터 지원)
+    - 조인대상 필터링
+        - select m,t from Memer m LEFT JOIN m.team t on t.name='A'
+            - 팀의 이름이 A인 애만 조인
+    - 연관관계가 없는 엔티티 외부조인(하이버네이트5.1부터)
+        - select m,t from Member m LEFT JOIN Team t on m.username = t.name
