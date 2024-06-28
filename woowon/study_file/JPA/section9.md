@@ -155,3 +155,39 @@ List<Member> result = em.createQuery("select m from Member m order by m.age desc
 - SELECT 절도 가능(하이버네이트에서 지원)
 - FROM 절의 서브 쿼리는 JPQL에서 불가능
     - 조인으로 풀수있으면 풀어서 해결
+
+### JPQL 타입 표현
+- 문자 : 'HELLO', 'She''s'
+- 숫자 : 10L(Long), 10D(Double), 10F(Float)
+- Boolean : TRUE, FALSE
+- ENUM : 패키지명
+- 엔티티 타입 : TYPE(m) = Member(상속 관계에서 사용)
+
+### 조건식
+- 기본 CASE식
+```
+select
+    case when m.age<=10 then '학생요금'
+        when m.age>=60 then '경로요금'
+        else'학생요금'
+    end
+from Member m
+```
+- 단순 CASE식
+```
+select
+    case t.name
+        when '팀A' then '110%'
+        when '팀B' then '120%'
+        else '105%'
+    end
+from Team t
+```
+- COALESCE : 하나씩 조회해서 null이 아니면 반환
+```
+select coalesce(m.username,'이름없는회원') from Member m"
+```
+- NULLIF : 두 값이 같으면 null반환, 다르면 첫번째 값 반환
+```
+select nullif(m.username,'관리자') as username from Member m
+```
