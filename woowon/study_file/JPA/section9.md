@@ -191,3 +191,20 @@ select coalesce(m.username,'이름없는회원') from Member m"
 ```
 select nullif(m.username,'관리자') as username from Member m
 ```
+
+### 기본함수
+- JPQL에서 제공하는 표준함수
+    - CONCAT,SUBSTRING,TRIM 등등
+- 사용자 정의 함수
+    - 하이버네이트는 사용전 방언에 추가해야 한다
+    - 사용하는 DB 방언을 상속받고, 사용자 함수를 등록한다
+```
+    public class MyH2Dialect extends H2Dialect{
+    public MyH2Dialect(){
+        registerFunction("group_concat", new StandardSQLFunction("group_concat",StandardBasicTypes.STRING));
+    }
+}
+```
+```
+"select function('group_concat', m.username) From Member m"
+```
